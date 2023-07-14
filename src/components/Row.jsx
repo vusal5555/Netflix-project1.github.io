@@ -16,26 +16,26 @@ const Row = ({ title, fetchUrl, rowId }) => {
     });
   }, [fetchUrl]);
 
-  const scrollLeft = () => {
+  const slideLeft = () => {
     var slider = document.getElementById("slider" + rowId);
     slider.scrollLeft = slider.scrollLeft - 500;
   };
-
-  const scrollRight = () => {
+  const slideRight = () => {
     var slider = document.getElementById("slider" + rowId);
     slider.scrollLeft = slider.scrollLeft + 500;
   };
+
   return (
     <div className="w-full h-full text-white p-4">
       <h1 className="text-xl font-bold mb-3">{title}</h1>
-      <div className="flex items-center relative">
+      <div className="relative flex items-center group ">
         <BsFillArrowLeftCircleFill
-          onClick={() => scrollLeft()}
-          className="absolute left-0 z-10"
+          onClick={() => slideLeft()}
+          className="absolute left-0 z-50 hidden group-hover:block"
           size={30}
         ></BsFillArrowLeftCircleFill>
         <div
-          className="w-full h-full overflow-x-scroll scrollbar-hide scroll-smooth whitespace-nowrap relative"
+          className="w-full h-full overflow-x-scroll scrollbar-hide scroll-smooth whitespace-nowrap  relative will-change-transform"
           id={"slider" + rowId}
         >
           {movies.map((movie) => {
@@ -43,8 +43,8 @@ const Row = ({ title, fetchUrl, rowId }) => {
           })}
         </div>
         <BsFillArrowRightCircleFill
-          onClick={() => scrollRight()}
-          className="absolute right-0 z-10"
+          onClick={() => slideRight()}
+          className="absolute right-0 z-50 hidden group-hover:block"
           size={30}
         ></BsFillArrowRightCircleFill>
       </div>

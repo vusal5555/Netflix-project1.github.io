@@ -27,17 +27,17 @@ const SignUp = () => {
       <img
         src="https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
         alt=""
-        className="absolute w-full h-screen object-cover"
+        className="absolute w-full h-screen object-cover hidden lg:block"
       />
       <div className="w-full h-full pt-[10rem] px-4 absolute top-[15%]">
-        <div className="max-w-[450px] h-[600px]  bg-black/75  px-4 py-16 text-white m-auto z-10 rounded-md ">
+        <div className="max-w-[450px] h-[600px] bg-white lg:bg-black/75   px-4 py-16 text-black lg:text-white m-auto  rounded-md ">
           <form onSubmit={handleSingUp}>
             <div className="flex flex-col mb-4">
               <label className="mb-2">Email</label>
               <input
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                className="px-2 py-2 text-black rounded-sm"
+                className="px-2 py-2 text-black rounded-sm border border-gray-300 lg:border-none"
               />
             </div>
             <div className="flex flex-col mb-4">
@@ -45,10 +45,10 @@ const SignUp = () => {
               <input
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
-                className="px-2 py-2 text-black rounded-sm"
+                className="px-2 py-2 text-black rounded-sm border border-gray-300 lg:border-none"
               />
             </div>
-            <button className="bg-red-500 text-center w-full px-2 py-2 rounded-sm">
+            <button className="bg-red-500 text-white text-center w-full px-2 py-2 rounded-sm">
               Sign Up
             </button>
           </form>

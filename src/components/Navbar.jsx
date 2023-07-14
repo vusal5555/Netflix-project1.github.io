@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { UserAuth } from "../context/UserContext";
 
 const Navbar = () => {
-  const { logOut, user } = UserAuth();
+  const { user, logOut } = UserAuth();
 
   const handleLogOut = async () => {
     try {
