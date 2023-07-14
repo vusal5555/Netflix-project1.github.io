@@ -24,8 +24,11 @@ const Movie = ({ movie }) => {
           img: movie.backdrop_path,
         }),
       });
+    } else {
+      alert("Please log in to save a movie");
     }
   };
+
   return movie?.backdrop_path ? (
     <div className="w-[280px] inline-block p-2 hover:scale-105 duration-200 cursor-pointer relative">
       <img
