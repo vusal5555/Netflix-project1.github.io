@@ -24,7 +24,7 @@ const Main = () => {
   return (
     <div className="w-full h-[550px] text-white">
       <div className="w-full h-full">
-        <div className="absolute w-full h-full bg-gradient-to-r from-black"></div>
+        <div className="absolute w-full h-[550px] bg-gradient-to-r from-black"></div>
         <img
           className="w-full h-full object-cover"
           src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
@@ -44,7 +44,7 @@ const Main = () => {
             </button>
           </div>
           <h1 className="text-gray-400">{movie?.release_date}</h1>
-          <h1 className="w-[75%] md:w-[65%] lg:w-[50%]">
+          <h1 className="w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200">
             {trunaceString(movie?.overview, 150)}
           </h1>
         </div>
