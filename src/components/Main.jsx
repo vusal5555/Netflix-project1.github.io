@@ -23,15 +23,15 @@ const Main = () => {
 
   return (
     <div className="w-full h-[550px] text-white">
-      <div className="w-full h-full relative">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black"></div>
+      <div className="w-full h-full">
+        <div className="absolute w-full h-full bg-gradient-to-r from-black"></div>
         <img
           className="w-full h-full object-cover"
           src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
           alt={movie?.title}
         />
 
-        <div className="absolute top-[35%] p-4">
+        <div className="absolute w-full top-[35%] p-4">
           <h1 className="text-4xl font-bold mb-3">{movie?.title}</h1>
           <div className="mb-3">
             <button className="px-5 py-2 bg-gray-400 text-black  mr-3">
