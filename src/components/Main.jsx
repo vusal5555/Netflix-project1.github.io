@@ -31,7 +31,7 @@ const Main = () => {
           alt={movie?.title}
         />
 
-        <div className="absolute w-full top-[35%] p-4">
+        <div className="absolute w-full top-[20%] p-4">
           <h1 className="text-4xl font-bold mb-3">{movie?.title}</h1>
           <div className="mb-3">
             <button className="px-5 py-2 bg-gray-400 text-black  mr-3">

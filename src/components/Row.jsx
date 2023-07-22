@@ -27,7 +27,7 @@ const Row = ({ title, fetchUrl, rowId }) => {
   return (
     <div className="w-full h-full text-white p-4">
       <h1 className="text-xl font-bold mb-3">{title}</h1>
-      <div className="relative flex items-center group ">
+      <div className="relative flex items-center group">
         <BsFillArrowLeftCircleFill
           onClick={() => slideLeft()}
           className="absolute left-0 z-50 hidden group-hover:block"
