@@ -1,11 +1,10 @@
 import axios from "axios";
-import React from "react";
-import { useEffect, useState } from "react";
-import Movie from "./Movie";
+import React, { useEffect, useState } from "react";
 import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
+import Movie from "./Movie";
 
 const Row = ({ title, fetchUrl, rowId }) => {
   const [movies, setMovies] = useState([]);
@@ -35,7 +34,7 @@ const Row = ({ title, fetchUrl, rowId }) => {
           size={30}
         ></BsFillArrowLeftCircleFill>
         <div
-          className="w-full h-full overflow-x-scroll scrollbar-hide scroll-smooth whitespace-nowrap  relative will-change-transform"
+          className="w-full h-full overflow-x-scroll scrollbar-hide scroll-smooth whitespace-nowrap relative will-change-transform"
           id={"slider" + rowId}
         >
           {movies.map((movie) => {

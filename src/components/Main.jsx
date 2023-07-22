@@ -6,12 +6,12 @@ import requests from "../Request";
 const Main = () => {
   const [movies, setMovies] = useState([]);
 
-  const movie = movies[Math.floor(Math.random() * movies.length)];
   useEffect(() => {
     axios.get(requests.requestPopular).then((response) => {
       setMovies(response.data.results);
     });
   }, []);
+  const movie = movies[Math.floor(Math.random() * movies.length)];
 
   const trunaceString = (str, num) => {
     if (str?.length > num) {
@@ -26,9 +26,9 @@ const Main = () => {
       <div className="w-full h-full relative">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black"></div>
         <img
-          src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
-          alt=""
           className="w-full h-full object-cover"
+          src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
+          alt={movie?.title}
         />
 
         <div className="absolute top-[35%] p-4">
