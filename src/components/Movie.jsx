@@ -30,7 +30,7 @@ const Movie = ({ movie }) => {
   };
 
   return movie?.backdrop_path ? (
-    <div className="w-[280px] inline-block p-2 hover:scale-105 duration-200 cursor-pointer relative">
+    <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2 hover:scale-105 duration-200">
       <img
         src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
         alt=""
