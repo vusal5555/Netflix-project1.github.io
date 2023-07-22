@@ -4,6 +4,7 @@ import { useState } from "react";
 import { db } from "../firebase";
 import { updateDoc, doc, arrayUnion } from "firebase/firestore";
 import { UserAuth } from "../context/UserContext";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Movie = ({ movie }) => {
   const [like, setLike] = useState(false);
@@ -31,10 +32,11 @@ const Movie = ({ movie }) => {
 
   return movie?.backdrop_path ? (
     <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2 hover:scale-105 duration-200">
-      <img
+      <LazyLoadImage
         src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
         alt={movie?.title}
         className="w-full h-full block"
+        effect="blur"
       />
 
       <div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white">
