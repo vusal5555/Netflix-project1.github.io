@@ -9,7 +9,7 @@ import Movie from "./Movie";
 const Row = ({ title, fetchUrl, rowId }) => {
   const [movies, setMovies] = useState([]);
 
-  //will-change-transform
+  //
 
   useEffect(() => {
     axios.get(fetchUrl).then((response) => {
@@ -36,7 +36,7 @@ const Row = ({ title, fetchUrl, rowId }) => {
           size={30}
         ></BsFillArrowLeftCircleFill>
         <div
-          className="w-full h-full overflow-x-scroll scrollbar-hide scroll-smooth whitespace-nowrap relative"
+          className="w-full h-full overflow-x-scroll scrollbar-hide scroll-smooth whitespace-nowrap will-change-transform relative"
           id={"slider" + rowId}
         >
           {movies.map((movie) => {
