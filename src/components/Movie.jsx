@@ -32,9 +32,12 @@ const Movie = ({ movie }) => {
   };
 
   return movie?.backdrop_path ? (
-    <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2 hover:scale-105 duration-200">
+    <div
+      className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative 
+      p-2 hover:scale-105 duration-200"
+    >
       <LazyLoadImage
-        src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
+        src={`https://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`}
         alt={movie?.title}
         className="w-full h-full block"
         effect="blur"
