@@ -38,8 +38,8 @@ const Movie = ({ movie }) => {
     >
       <img
         src={`https://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`}
-        alt={movie?.title}
         className="w-full h-full block"
+        alt={movie?.title}
       />
 
       <div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white">
