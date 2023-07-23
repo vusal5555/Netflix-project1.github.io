@@ -35,7 +35,7 @@ const Row = ({ title, fetchUrl, rowId }) => {
         ></BsFillArrowLeftCircleFill>
         <div
           className="w-full h-full overflow-x-scroll scrollbar-hide scroll-smooth whitespace-nowrap
-          will-change-transform relative"
+          relative"
           id={"slider" + rowId}
         >
           {movies.map((movie) => {
