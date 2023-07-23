@@ -5,7 +5,7 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
-import { onSnapshot, doc, arrayUnion } from "firebase/firestore";
+import { onSnapshot, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import { updateDoc } from "firebase/firestore";
 import { AiOutlineClose } from "react-icons/ai";
@@ -49,7 +49,7 @@ const Account = () => {
         <img
           src="https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
           alt=""
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover block"
         />
 
         <div className="absolute top-[30%] text-white p-4">
@@ -65,19 +65,21 @@ const Account = () => {
               size={30}
             ></BsFillArrowLeftCircleFill>
             <div
-              className="w-full h-full overflow-x-scroll scrollbar-hide scroll-smooth whitespace-nowrap  relative will-change-transform"
+              className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide  
+              relative"
               id={"slider"}
             >
               {movies.map((movie) => {
                 return (
                   <div
                     key={movie?.id}
-                    className="w-[280px] inline-block p-2 hover:scale-105 duration-200 cursor-pointer relative"
+                    className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative 
+                    p-2 hover:scale-105 duration-200"
                   >
                     <img
-                      src={`https://image.tmdb.org/t/p/original/${movie?.img}`}
+                      src={`https://image.tmdb.org/t/p/w500/${movie?.img}`}
                       alt=""
-                      className="w-full h-full"
+                      className="w-full h-full block"
                     />
 
                     <div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white">
