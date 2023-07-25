@@ -33,6 +33,7 @@ const SignIn = () => {
               <input
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
+                required
                 className="px-2 py-2 text-black rounded-sm border border-gray-300 lg:border-none"
               />
             </div>
@@ -41,6 +42,7 @@ const SignIn = () => {
               <input
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
+                required
                 className="px-2 py-2 text-black rounded-sm border border-gray-300  lg:border-none"
               />
             </div>
