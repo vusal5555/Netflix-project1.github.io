@@ -21,7 +21,7 @@ const Main = () => {
   };
 
   return (
-    <div className="w-full h-[550px] text-white">
+    <div className="w-full h-[550px]">
       <div className="w-full h-full">
         <div className="absolute w-full h-[550px] bg-gradient-to-r from-black"></div>
         <img
@@ -30,14 +30,14 @@ const Main = () => {
           alt={movie?.title}
         />
         <div className="absolute w-full top-[20%] p-4">
-          <h1 className="text-3xl md:text-5xl font-bold mb-3">
+          <h1 className="text-3xl text-gray-200 md:text-5xl font-bold mb-3">
             {movie?.title}
           </h1>
           <div className="mb-3">
-            <button className="px-5 py-2 bg-gray-400 text-black  mr-3">
+            <button className="px-5 py-2 bg-gray-400 text-black mr-3">
               Play
             </button>
-            <button className="px-5 py-2 border border-white">
+            <button className="px-5 py-2 border border-white text-white">
               Watch Later
             </button>
           </div>
