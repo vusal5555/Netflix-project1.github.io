@@ -28,7 +28,6 @@ const Main = () => {
           className="w-full h-full object-cover block"
           src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
           alt={movie?.title}
-          loading="lazy"
         />
         <div className="absolute w-full top-[20%] p-4">
           <h1 className="text-3xl text-gray-200 md:text-5xl font-bold mb-3">
