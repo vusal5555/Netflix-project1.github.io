@@ -4,8 +4,8 @@ import { useState } from "react";
 import { db } from "../firebase";
 import { updateDoc, doc, arrayUnion } from "firebase/firestore";
 import { UserAuth } from "../context/UserContext";
-// import { LazyLoadImage } from "react-lazy-load-image-component";
-// import "react-lazy-load-image-component/src/effects/blur.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Movie = ({ movie }) => {
   const [like, setLike] = useState(false);
@@ -36,9 +36,10 @@ const Movie = ({ movie }) => {
       className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative 
       p-2 hover:scale-105 duration-200"
     >
-      <img
+      <LazyLoadImage
         src={`https://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`}
         className="w-full h-full block"
+        effect="blur"
         alt={movie?.title}
       />
 
