@@ -29,7 +29,7 @@ const SignUp = () => {
         alt=""
         className="absolute w-full h-full object-cover hidden lg:block"
       />
-      <div className="w-full h-full pt-[5rem] px-4 absolute top-[15%]">
+      <div className="w-full h-full pt-[5rem] px-4 absolute top-[10%]">
         <div
           className="max-w-[450px] h-[600px] block bg-white lg:bg-black/75 px-4 py-16 text-black
          lg:text-white m-auto rounded-md"
