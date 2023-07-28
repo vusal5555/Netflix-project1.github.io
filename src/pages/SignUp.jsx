@@ -23,14 +23,17 @@ const SignUp = () => {
   };
 
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full h-screen relative lg:overflow-hidden">
       <img
         src="https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
         alt=""
-        className="absolute w-full h-screen object-cover hidden lg:block"
+        className="absolute w-full h-full object-cover hidden lg:block"
       />
-      <div className="w-full h-full pt-[10rem] px-4 absolute top-[15%]">
-        <div className="max-w-[450px] h-[600px] bg-white lg:bg-black/75   px-4 py-16 text-black lg:text-white m-auto  rounded-md ">
+      <div className="w-full h-full pt-[5rem] px-4 absolute top-[15%]">
+        <div
+          className="max-w-[450px] h-[600px] block bg-white lg:bg-black/75 px-4 py-16 text-black
+         lg:text-white m-auto rounded-md"
+        >
           <form onSubmit={handleSingUp}>
             <div className="flex flex-col mb-4">
               <label className="mb-2">Email</label>

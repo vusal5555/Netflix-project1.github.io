@@ -13,7 +13,7 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="w-full  flex justify-between items-center p-4 absolute text-white z-10">
+    <div className="w-full flex justify-between items-center p-4 absolute text-white z-10">
       <Link to="/">
         <h1 className="text-red-500 font-bold text-4xl uppercase">Netflix</h1>
       </Link>
