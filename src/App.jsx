@@ -16,7 +16,7 @@ const App = () => {
   );
 
   return (
-    <div className="overflow-x-hidden">
+    <div>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
