@@ -1,65 +1,79 @@
 import React, { useState } from "react";
 import { UserAuth } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { user, signUp } = UserAuth();
   const navigate = useNavigate();
 
-  const { createUser } = UserAuth();
-
-  const handleSingUp = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/");
     try {
-      await createUser(email, password);
-    } catch (e) {
-      if (e.code === "auth/email-already-in-use") {
-        alert("Email already in use");
-        navigate("/signup");
-      }
+      await signUp(email, password);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
     }
   };
 
   return (
-    <div className="w-full h-screen relative overflow-hidden">
-      <img
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-        alt=""
-        className="absolute w-full h-full object-cover hidden lg:block"
-      />
-      <div className="w-full h-full pt-[5rem] px-4 absolute top-[10%]">
-        <div
-          className="max-w-[450px] h-[500px] md:h-[600px] block bg-white lg:bg-black/75 px-4 py-16 text-black
-         lg:text-white m-auto rounded-md"
-        >
-          <form onSubmit={handleSingUp}>
-            <div className="flex flex-col mb-4">
-              <label className="mb-2">Email</label>
-              <input
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                required
-                className="px-2 py-2 text-black rounded-sm border border-gray-300 lg:border-none"
-              />
+    <>
+      <div className="w-full h-screen">
+        <img
+          className="hidden sm:block absolute w-full h-full object-cover"
+          src="https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
+          alt="/"
+        />
+        <div className="bg-black/60 fixed top-0 left-0 w-full h-screen"></div>
+        <div className="fixed w-full px-4 py-24 z-50">
+          <div className="max-w-[450px] h-[600px] mx-auto text-white bg-black/75">
+            <div className="max-w-[320px] mx-auto py-16">
+              <h1 className="text-3xl font-bold">Sign Up</h1>
+              <form
+                onSubmit={handleSubmit}
+                className="w-full flex flex-col py-4"
+              >
+                <input
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="p-3 my-2 bg-gray-700 rouded"
+                  type="email"
+                  placeholder="Email"
+                  autoComplete="email"
+                  required
+                />
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="p-3 my-2 bg-gray-700 rouded"
+                  type="password"
+                  placeholder="Password"
+                  autoComplete="current-password"
+                  required
+                />
+                <button className="bg-red-600 py-3 my-6 rounded font-bold">
+                  Sign Up
+                </button>
+                <div className="flex justify-between items-center text-sm text-gray-600">
+                  <p>
+                    <input className="mr-2" type="checkbox" />
+                    Remember me
+                  </p>
+                  <p>Need Help?</p>
+                </div>
+                <p className="py-8">
+                  <span className="text-gray-600">
+                    Already subscribed to Netflix?
+                  </span>{" "}
+                  <Link to="/signin">Sign In</Link>
+                </p>
+              </form>
             </div>
-            <div className="flex flex-col mb-4">
-              <label className="mb-2">Password</label>
-              <input
-                onChange={(e) => setPassword(e.target.value)}
-                type="password"
-                required
-                className="px-2 py-2 text-black rounded-sm border border-gray-300 lg:border-none"
-              />
-            </div>
-            <button className="bg-red-500 text-white text-center w-full px-2 py-2 rounded-sm">
-              Sign Up
-            </button>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

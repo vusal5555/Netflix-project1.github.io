@@ -13,14 +13,14 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="w-full flex justify-between items-center p-4 absolute text-white z-10">
+    <div className="flex justify-between items-center p-4 z-[100] w-full absolute text-white">
       <Link to="/">
         <h1 className="text-red-500 font-bold text-4xl uppercase">Netflix</h1>
       </Link>
 
       {user ? (
         <div>
-          <Link to="account">
+          <Link to="/account">
             <button>Account</button>
           </Link>
 
@@ -33,10 +33,10 @@ const Navbar = () => {
         </div>
       ) : (
         <div>
-          <Link to="signin">
+          <Link to="/signin">
             <button>Sign In</button>
           </Link>
-          <Link to="signup">
+          <Link to="/signup">
             <button className="px-4 py-2 bg-red-500 rounded-md ml-4">
               Sign Up
             </button>

@@ -16,7 +16,7 @@ const UserContext = createContext();
 export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
-  const createUser = (email, password) => {
+  const signUp = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password);
     setDoc(doc(db, "users", email), {
       savedShows: [],
@@ -27,7 +27,7 @@ export const UserContextProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  const signIn = (email, password) => {
+  const logIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -42,7 +42,7 @@ export const UserContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ createUser, logOut, signIn, user }}>
+    <UserContext.Provider value={{ signUp, logOut, logIn, user }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,58 +1,72 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/UserContext";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { user, logIn } = UserAuth();
   const navigate = useNavigate();
 
-  const { signIn } = UserAuth();
-  //h-[600px]
-  const handleSingIn = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/");
+    setError("");
     try {
-      await signIn(email, password);
-    } catch (e) {
-      console.log(e);
+      await logIn(email, password);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      setError(error.message);
     }
   };
   return (
-    <div className="w-full h-screen relative overflow-y-hidden">
+    <div className="w-full h-screen">
       <img
+        className="hidden sm:block absolute w-full h-full object-cover"
         src="https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-        alt=""
-        className="absolute w-full h-full object-cover hidden lg:block"
+        alt="/"
       />
-      <div className="w-full h-screen pt-[5rem] px-4 absolute top-[10%] overflow-y-hidden">
-        <div
-          className="max-w-[450px] h-[500px] md:h-[600px] bg-white lg:bg-black/75 px-4 py-16 text-black
-          lg:text-white m-auto rounded-md"
-        >
-          <form onSubmit={handleSingIn}>
-            <div className="flex flex-col mb-4">
-              <label className="mb-2">Email</label>
+      <div className="bg-black/60 fixed top-0 left-0 w-full h-screen"></div>
+      <div className="fixed w-full px-4 py-24 z-50">
+        <div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
+          <div className="max-w-[320px] mx-auto py-16">
+            <h1 className="text-3xl font-bold">Sign In</h1>
+            {error ? <p className="p-3 bg-red-400 my-2">{error}</p> : null}
+            <form onSubmit={handleSubmit} className="w-full flex flex-col py-4">
               <input
                 onChange={(e) => setEmail(e.target.value)}
+                className="p-3 my-2 bg-gray-700 rouded"
                 type="email"
+                placeholder="Email"
+                autoComplete="email"
                 required
-                className="px-2 py-2 text-black rounded-sm border border-gray-300 lg:border-none"
               />
-            </div>
-            <div className="flex flex-col mb-4">
-              <label className="mb-2">Password</label>
               <input
                 onChange={(e) => setPassword(e.target.value)}
+                className="p-3 my-2 bg-gray-700 rouded"
                 type="password"
+                placeholder="Password"
+                autoComplete="current-password"
                 required
-                className="px-2 py-2 text-black rounded-sm border border-gray-300  lg:border-none"
               />
-            </div>
-            <button className="bg-red-500 text-white text-center w-full px-2 py-2 rounded-sm">
-              Sign In
-            </button>
-          </form>
+              <button className="bg-red-600 py-3 my-6 rounded font-bold">
+                Sign In
+              </button>
+              <div className="flex justify-between items-center text-sm text-gray-600">
+                <p>
+                  <input className="mr-2" type="checkbox" />
+                  Remember me
+                </p>
+                <p>Need Help?</p>
+              </div>
+              <p className="py-8">
+                <span className="text-gray-600">New to Netflix?</span>{" "}
+                <Link to="/signup">Sign Up</Link>
+              </p>
+            </form>
+          </div>
         </div>
       </div>
     </div>
