@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../context/UserContext";
 
 const Navbar = () => {
   const { user, logOut } = UserAuth();
+  const [color, setColor] = useState(false);
+
+  const changeColor = () => {
+    if (window.scrollY >= 90) {
+      setColor(true);
+    } else {
+      setColor(false);
+    }
+  };
+
+  //flex items-center justify-between p-4 z-[100] w-full text-white fixed
+
+  window.addEventListener("scroll", changeColor);
 
   const handleLogOut = async () => {
     try {
@@ -12,8 +25,15 @@ const Navbar = () => {
       console.log(e);
     }
   };
+
   return (
-    <div className="flex justify-between items-center p-4 z-[100] w-full absolute text-white">
+    <div
+      className={
+        color
+          ? "flex items-center justify-between p-4 z-[100] w-full text-white fixed bg-black"
+          : "flex items-center justify-between p-4 z-[100] w-full text-white fixed"
+      }
+    >
       <Link to="/">
         <h1 className="text-red-500 font-bold text-4xl uppercase">Netflix</h1>
       </Link>
