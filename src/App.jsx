@@ -7,8 +7,16 @@ import SignIn from "./pages/SignIn";
 import Account from "./pages/Account";
 
 const App = () => {
+  document.addEventListener(
+    "touchmove",
+    function (e) {
+      e.preventDefault();
+    },
+    { passive: false }
+  );
+
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
