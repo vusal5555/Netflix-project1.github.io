@@ -21,6 +21,14 @@ const SignIn = () => {
       setError(error.message);
     }
   };
+
+  document.addEventListener(
+    "touchmove",
+    function (e) {
+      e.preventDefault();
+    },
+    { passive: false }
+  );
   return (
     <div className="w-full h-screen">
       <img

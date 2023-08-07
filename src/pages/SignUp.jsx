@@ -19,6 +19,14 @@ const SignUp = () => {
     }
   };
 
+  document.addEventListener(
+    "touchmove",
+    function (e) {
+      e.preventDefault();
+    },
+    { passive: false }
+  );
+
   return (
     <>
       <div className="w-full h-screen">
