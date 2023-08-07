@@ -5,7 +5,7 @@ import requests from "../Request";
 
 const Home = () => {
   return (
-    <div className="touch-none">
+    <div>
       <Main></Main>
       <Row rowId="1" title="Popular" fetchUrl={requests.requestPopular}></Row>
       <Row
