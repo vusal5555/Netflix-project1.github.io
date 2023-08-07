@@ -5,7 +5,7 @@ import requests from "../Request";
 
 const Home = () => {
   return (
-    <div>
+    <div className="overscroll-none">
       <Main></Main>
       <Row rowId="1" title="Popular" fetchUrl={requests.requestPopular}></Row>
       <Row
