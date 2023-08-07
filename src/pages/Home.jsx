@@ -4,12 +4,19 @@ import Row from "../components/Row";
 import requests from "../Request";
 
 const Home = () => {
-  const touch = (e) => {
-    e.preventDefault();
+  moves: (element, container, handle) => {
+    return handle.classList.contains("drag-handle-class");
   };
 
+  const moveList = document.querySelectorAll("div.drag-handle-class");
+
+  if (moveList) {
+    moveList.forEach((move) => {
+      move.addEventListener("touchmove", (event) => event.preventDefault());
+    });
+  }
   return (
-    <div onTouchMove={touch}>
+    <div>
       <Main></Main>
       <Row rowId="1" title="Popular" fetchUrl={requests.requestPopular}></Row>
       <Row
