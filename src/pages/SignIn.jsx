@@ -22,7 +22,7 @@ const SignIn = () => {
     }
   };
 
-  document.addEventListener(
+  window.addEventListener(
     "touchmove",
     function (e) {
       e.preventDefault();
