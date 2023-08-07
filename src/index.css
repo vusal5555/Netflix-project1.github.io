@@ -2,16 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  -webkit-user-drag: none;
-}
-
-html {
-  -webkit-user-drag: none;
-}
-
 body {
   background-color: #000000;
   user-select: none;
-  -webkit-user-drag: none;
+  overflow: hidden;
+  overscroll-behavior: none;
+  overflow-y: scroll;
 }
