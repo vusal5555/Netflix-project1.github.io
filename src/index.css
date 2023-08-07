@@ -5,7 +5,4 @@
 body {
   background-color: #000000;
   user-select: none;
-  overflow: hidden;
-  overscroll-behavior: none;
-  overflow-y: scroll;
 }
