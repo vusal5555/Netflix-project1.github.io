@@ -31,7 +31,7 @@ const Navbar = () => {
       className={
         color
           ? "flex items-center justify-between p-4 z-[100] w-full text-white fixed bg-black"
-          : "flex items-center justify-between p-4 z-[100] w-full text-white fixed"
+          : "flex items-center justify-between p-4 z-[100] w-full text-white absolute"
       }
     >
       <Link to="/">
