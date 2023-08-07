@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  -webkit-user-drag: none;
+}
+
 html {
   -webkit-user-drag: none;
 }
