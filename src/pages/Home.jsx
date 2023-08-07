@@ -4,8 +4,12 @@ import Row from "../components/Row";
 import requests from "../Request";
 
 const Home = () => {
+  const touch = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <div>
+    <div onTouchMove={touch}>
       <Main></Main>
       <Row rowId="1" title="Popular" fetchUrl={requests.requestPopular}></Row>
       <Row
