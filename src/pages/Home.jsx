@@ -4,17 +4,6 @@ import Row from "../components/Row";
 import requests from "../Request";
 
 const Home = () => {
-  moves: (element, container, handle) => {
-    return handle.classList.contains("drag-handle-class");
-  };
-
-  const moveList = document.querySelectorAll("div.drag-handle-class");
-
-  if (moveList) {
-    moveList.forEach((move) => {
-      move.addEventListener("touchmove", (event) => event.preventDefault());
-    });
-  }
   return (
     <div>
       <Main></Main>
